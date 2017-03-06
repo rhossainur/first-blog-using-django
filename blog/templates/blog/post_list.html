@@ -1,31 +1,54 @@
+{% load staticfiles %}
 <html>
     <head>
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="{% static 'css/blog.css' %}">
         <title>My first Django powered blog ;)</title>
     </head>
     <body>
-        <div>
+        <div class="page-header">
             <h1><a href="">Hossainur Rahaman's Blog</a></h1>
+            
+        </div>
+		<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
             {% for post in posts %}
-            <div>
-				<p>published: {{post.published_date}}</p>
-				<h2><a href="">{{post.title}}</a></h2>
-				<p>{{post.text|linebreaksbr}}</p>
-            </div>
+                <div class="post">
+                    <div class="date">
+                        <p>published: {{ post.published_date }}</p>
+                    </div>
+                    <h1><a href="">{{ post.title }}</a></h1>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                </div>
             {% endfor %}
         </div>
+    </div>
+</div>
 
-        <div>
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+        <div class="post">
             
             <h2><a href="">My first post</a></h2>
             <p>I don't know what to write</p>
         </div>
-
-        <div>
+        </div>
+        </div>
+        </div>
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+        <div class="post">
             
             <h2><a href="">My second post</a></h2>
             <p>I still dont know what to</p>
+        </div>
+        </div>
+        </div>
         </div>
     </body>
 </html>
